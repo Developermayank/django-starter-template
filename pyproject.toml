@@ -12,9 +12,31 @@ dependencies = [
 [dependency-groups]
 dev = [
     "django-ninja>=1.5.3",
-    "mysqlclient>=2.2.8",
-    "psycopg>=3.3.3",
     "uvicorn>=0.41.0",
-    "gunicorn>=25.1.0 ; sys_platform == 'linux'",
-    "uvicorn-worker>=0.4.0 ; sys_platform == 'linux'",
+]
+api = [
+    "django-ninja>=1.5.3",
+]
+drf = [
+    "django-filter>=25.2",
+    "djangorestframework>=3.16.1",
+    "markdown>=3.10.2",
+]
+linux = [
+    "gunicorn>=25.1.0",
+    "uvicorn-worker>=0.4.0",
+]
+mysql = [
+    "mysqlclient>=2.2.8",
+]
+postgres = [
+    "psycopg>=3.3.3",
+]
+ml = [
+    "marimo>=0.20.4",
+    "polars>=1.38.1",
+]
+cli = [
+    "click>=8.3.1",
+    "rich>=14.3.3",
 ]
