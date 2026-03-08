@@ -22,3 +22,8 @@ Django Project Template
 - Default VS Code settings with extensions recommendations
 
 ## Packages
+
+## Load Testing
+```
+    winget install hatoo.oha
+```
