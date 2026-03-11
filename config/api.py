@@ -4,7 +4,7 @@ from ninja.throttling import AnonRateThrottle, UserRateThrottle, AuthRateThrottl
 from decouple import config
 from django.conf import settings
 
-project_name = config('PROJECT_NAME', default='Django Starter Template')
+project_name = config('PROJECT_NAME', default='')
 
 options = {
     'openapi_url': '/openapi.json' if settings.DEBUG else None,

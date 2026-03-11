@@ -2,41 +2,37 @@
 name = "django-starter-template"
 version = "0.1.0"
 description = "Add your description here"
+requires-python = ">=3.13"
 readme = "README.md"
-requires-python = ">=3.14"
+license = { file = "LICENSE" }
+
 dependencies = [
     "django>=6.0.3",
     "python-decouple>=3.8",
 ]
 
 [dependency-groups]
+cli = [
+    "click>=8.3.1",
+    "rich>=14.3.3",
+]
 dev = [
     "django-ninja>=1.5.3",
+    "gunicorn>=25.1.0 ; sys_platform == 'linux'",
+    "questionary>=2.1.1",
     "uvicorn>=0.41.0",
-]
-api = [
-    "django-ninja>=1.5.3",
+    "uvicorn-worker>=0.4.0 ; sys_platform == 'linux'",
 ]
 drf = [
     "django-filter>=25.2",
     "djangorestframework>=3.16.1",
     "markdown>=3.10.2",
 ]
-linux = [
-    "gunicorn>=25.1.0",
-    "uvicorn-worker>=0.4.0",
-]
-mysql = [
-    "mysqlclient>=2.2.8",
-]
-postgres = [
-    "psycopg>=3.3.3",
+extra = [
+    "django-bolt>=0.7.0",
+    "tomlkit>=0.14.0",
 ]
 ml = [
     "marimo>=0.20.4",
     "polars>=1.38.1",
-]
-cli = [
-    "click>=8.3.1",
-    "rich>=14.3.3",
 ]
