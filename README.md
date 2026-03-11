@@ -34,7 +34,11 @@ A comprehensive Django project template with pre-configured authentication, exte
 - Default VS Code settings with extensions recommendations
 
 
-## Load Testing
+## Extra Tools
+
+#### oha
+
+[hatoo.oha](https://github.com/hatoo/oha) is a tiny program that sends some load to a web application. This can be useful for testing the performance of your Django application under load. You can install it using winget:
 ```bash
 winget install hatoo.oha
 ```
