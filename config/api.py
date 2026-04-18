@@ -1,10 +1,7 @@
 from ninja import NinjaAPI
 from ninja.security import django_auth_superuser, django_auth
 from ninja.throttling import AnonRateThrottle, UserRateThrottle, AuthRateThrottle
-from decouple import config
 from django.conf import settings
-
-project_name = config('PROJECT_NAME', default='')
 
 options = {
     'openapi_url': '/openapi.json' if settings.DEBUG else None,
@@ -15,17 +12,17 @@ options = {
     ]
 }
 
-apiV1 = NinjaAPI(title=f"{project_name} API", version="1.0.0", description=f"API for the {project_name} project.", urls_namespace="api", **options)
+apiV1 = NinjaAPI(title=f"Public API", version="1.0.0", description=f"Public API for the your project.", urls_namespace="api", **options)
 
 @apiV1.get("/hello")
 def hello(request):
     return {"message": "Hello, World!"}
 
 apiPrivate = NinjaAPI(    
-                title=f"{project_name} Private API", 
-                version="1.0.0", 
-                description=f"API for the {project_name} project (Private API).",
-                urls_namespace="private_api",
-                auth=django_auth_superuser,
-                **options
-            )
+    title=f"Private API", 
+    version="1.0.0", 
+    description=f"Private API for your project (Private API).",
+    urls_namespace="private_api",
+    auth=django_auth_superuser,
+    **options
+)

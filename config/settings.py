@@ -11,7 +11,16 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config, Csv, RepositoryEnv
+from collections import ChainMap
+from decouple import Config, RepositoryEnv, Csv
+
+combined_env = ChainMap(
+    RepositoryEnv(".env.public"),
+    RepositoryEnv(".env")
+)
+
+CONFIG = Config(combined_env)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +30,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = CONFIG('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', cast=bool, default=False)
+DEBUG = CONFIG('DJANGO_DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='127.0.0.1,localhost')
+ALLOWED_HOSTS = CONFIG('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='127.0.0.1,localhost')
 
 
 # Application definition
@@ -108,20 +117,20 @@ AUTH_USER_MODEL = 'core.User'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = config('TIME_ZONE', cast=str, default='Asia/Kolkata')
+TIME_ZONE = CONFIG('TIME_ZONE', cast=str, default='Asia/Kolkata')
 
-USE_I18N = config('USE_I18N', cast=bool, default=True)
-USE_TZ = config('USE_TZ', cast=bool, default=True)
+USE_I18N = CONFIG('USE_I18N', cast=bool, default=True)
+USE_TZ = CONFIG('USE_TZ', cast=bool, default=True)
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = config('STATIC_URL', cast=str, default='static/')
-STATIC_ROOT = config('STATIC_ROOT', cast=str, default= BASE_DIR / 'static')
+STATIC_URL = CONFIG('STATIC_URL', cast=str, default='static/')
+STATIC_ROOT = CONFIG('STATIC_ROOT', cast=str, default= BASE_DIR / 'static')
 
-MEDIA_URL = config('MEDIA_URL', cast=str, default='media/')
-MEDIA_ROOT = config('MEDIA_ROOT', cast=str, default= BASE_DIR / 'media')
+MEDIA_URL = CONFIG('MEDIA_URL', cast=str, default='media/')
+MEDIA_ROOT = CONFIG('MEDIA_ROOT', cast=str, default= BASE_DIR / 'media')
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
