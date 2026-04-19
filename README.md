@@ -36,9 +36,23 @@ A comprehensive Django project template with pre-configured authentication, exte
 
 ## Extra Tools
 
+#### Just
+
+You can install it using winget:
+```bash
+winget install Casey.Just
+```
+
 #### oha
 
 [hatoo.oha](https://github.com/hatoo/oha) is a tiny program that sends some load to a web application. This can be useful for testing the performance of your Django application under load. You can install it using winget:
 ```bash
 winget install hatoo.oha
+```
+
+## VS Code Settings
+
+- To speed up the terminal git bash intergration
+```
+"python-envs.terminal.autoActivationType": "shellStartup"
 ```

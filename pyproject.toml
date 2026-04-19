@@ -17,6 +17,7 @@ cli = [
     "rich>=14.3.3",
 ]
 dev = [
+    "django-debug-toolbar>=6.3.0",
     "django-ninja>=1.5.3",
     "gunicorn>=25.1.0 ; sys_platform == 'linux'",
     "questionary>=2.1.1",

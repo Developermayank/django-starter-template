@@ -1,13 +1,10 @@
 {
     "recommendations": [
-        "ms-python.python",
         "github.copilot-chat",
-        "batisteo.vscode-django",
         "mayanksinghal.django-vscode-mayanksinghal",
         "vscode-icons-team.vscode-icons",
         "esbenp.prettier-vscode",
         "zignd.html-css-class-completion",
-        "qwtel.sqlite-viewer",
-        "ms-python.black-formatter"
+        "qwtel.sqlite-viewer"
     ]
 }
