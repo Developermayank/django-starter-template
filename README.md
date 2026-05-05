@@ -50,6 +50,12 @@ winget install Casey.Just
 winget install hatoo.oha
 ```
 
+### bash_alias
+```bash
+alias uvr='uv run'
+alias uvm='uv run manage.py'
+```
+
 ## VS Code Settings
 
 - To speed up the terminal git bash intergration
