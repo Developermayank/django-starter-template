@@ -16,8 +16,13 @@ run:
 makemig:
     {{manage}} makemigrations
 
+# uv run manage.py migrate
 mig:
     {{manage}} migrate
+
+# uv run manage.py makemigrations && uv run manage.py migrate
+mm:
+    {{manage}} makemigrations && {{manage}} migrate
 
 # django shell
 shell:
@@ -26,7 +31,3 @@ shell:
 # tests
 test:
     {{manage}} test
-
-# superuser
-createsuper:
-    {{manage}} createsuperuser
